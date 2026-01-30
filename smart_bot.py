@@ -983,3 +983,22 @@ threading.Thread(target=mini_app.app.run, kwargs={
     "host": "0.0.0.0",
     "port": 10000
 }, daemon=True).start()
+
+def send_webapp_button():
+    url = "https://your-app-name.onrender.com"  # 🔴 የ Render link አስገባ
+
+    data = {
+        "chat_id": TG_ADMIN,
+        "text": "📱 SMART BOT MINI APP",
+        "reply_markup": {
+            "keyboard": [[
+                {
+                    "text": "🚀 Open Mini App",
+                    "web_app": {"url": url}
+                }
+            ]],
+            "resize_keyboard": True
+        }
+    }
+
+    requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage", json=data)
