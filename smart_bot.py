@@ -91,6 +91,7 @@ def get_balance():
 # DAILY INIT
 # ===============================
 def init_day():
+    send_webapp_button()
     global START_DAY_BALANCE, TRADES_TODAY, KILL_SWITCH
     START_DAY_BALANCE = get_balance()
     TRADES_TODAY = 0
